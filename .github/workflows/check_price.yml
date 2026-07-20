@@ -2,12 +2,11 @@ name: Check Product Prices
 
 on:
   schedule:
-    # Runs at the top of every hour (UTC)
-    - cron: "0 * * * *"
-  workflow_dispatch: {}   # lets you trigger it manually from the Actions tab
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 permissions:
-  contents: write   # needed so the workflow can commit updated price history
+  contents: write
 
 jobs:
   check-prices:
@@ -19,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: '3.12'
 
       - name: Install dependencies
         run: pip install -r requirements.txt
